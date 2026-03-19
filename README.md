@@ -11,10 +11,10 @@ Stack : Symfony/PHP (backend) + React (frontend) sur K3s.
 
 | Membre | Rôle Scrum |
 |--------|-----------|
-| @AnythingLegalConsidered (Ianis) | A définir |
-| @tequilla77 (Ojvind) | A définir |
-| @blaisecarel (Blaise) | A définir |
-| @zaidAbouyaala (Zaid) | A définir |
+| @AnythingLegalConsidered (Ianis) | Product Owner |
+| @tequilla77 (Ojvind) | Dev Team |
+| @blaisecarel (Blaise) | Scrum Master |
+| @zaidAbouyaala (Zaid) | Dev Team |
 
 ## Sprints
 

@@ -13,10 +13,10 @@ TP : https://github.com/kevinniel/2526-EPSINANTES-ASRBD-AGILE/blob/main/tp.md
 
 | GitHub | Prénom | Rôle Scrum |
 |--------|--------|-----------|
-| AnythingLegalConsidered | Ianis | A définir |
-| tequilla77 | Ojvind | A définir |
-| blaisecarel | Blaise | A définir |
-| zaidAbouyaala | Zaid | A définir |
+| AnythingLegalConsidered | Ianis | Product Owner |
+| tequilla77 | Ojvind | Dev Team |
+| blaisecarel | Blaise | Scrum Master |
+| zaidAbouyaala | Zaid | Dev Team |
 
 ### Rôles Scrum
 

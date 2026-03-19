@@ -155,11 +155,85 @@ Colonnes : Backlog > Sprint Backlog > In Progress > In Review > Done
 4. Cohérence technique
 5. Collaboration d'équipe
 
-## Instructions pour Claude Code
+## Instructions pour Claude Code (OBLIGATOIRE)
 
-- Langue : Français (code/config commentés en anglais)
-- Quand un membre demande "qu'est-ce que je dois faire", expliquer son rôle Scrum et les livrables concrets
-- Vérifier que les livrables Scrum sont produits dans docs/sprint-X/
-- Aider avec la config Kubernetes mais rappeler que l'objectif principal est la méthodo Scrum
-- Utiliser les GitHub Issues et Milestones pour tout le suivi
-- Ne jamais inclure "Co-Authored-By" dans les commits
+### Langue
+- Répondre en français
+- Code et config commentés en anglais
+
+### Commits
+- Ne jamais inclure "Co-Authored-By" dans les messages de commit
+
+### Principe fondamental
+**L'objectif de ce projet est la METHODOLOGIE SCRUM, pas la technique Kubernetes.**
+Avant toute action technique, vérifier que le processus Scrum est respecté.
+
+### A chaque début de session avec un membre de l'équipe
+
+1. **Identifier qui parle** — demander le prénom si pas clair, vérifier son rôle Scrum dans le tableau équipe ci-dessus
+2. **Identifier le sprint en cours** — vérifier les milestones GitHub : `gh api repos/AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2/milestones`
+3. **Vérifier l'état des livrables Scrum du sprint en cours** :
+   - Le `sprint-planning.md` est-il rempli ? Si non, c'est la priorité.
+   - Le `daily-scrums.md` est-il à jour ? Rappeler de le compléter.
+   - Y a-t-il des issues assignées à cette personne ? Les montrer.
+4. **Afficher un résumé de situation** :
+   - Sprint en cours et son goal
+   - Issues ouvertes du sprint (avec `gh issue list --repo AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2 --milestone "Sprint X"`)
+   - Ce qui reste à faire
+
+### Quand un membre demande de l'aide technique (K8s, manifestes, etc.)
+
+1. **Avant de coder** — vérifier que la story associée existe dans les issues GitHub
+2. **Pendant le travail** — rappeler de faire un daily scrum si pas encore fait aujourd'hui
+3. **Après le travail** — rappeler de :
+   - Commiter et pusher sur le repo
+   - Mettre à jour l'issue GitHub (commentaire + fermer si terminé)
+   - Déplacer l'issue dans le board (In Progress → Done)
+   - Vérifier si les critères d'acceptation de l'issue sont tous cochés
+
+### Quand un membre demande "qu'est-ce que je dois faire ?"
+
+1. Rappeler son **rôle Scrum** et ce que ça implique concrètement
+2. Montrer les **issues du sprint en cours** qui lui sont assignées (ou non assignées)
+3. Vérifier si les **livrables Scrum** du sprint sont remplis (planning, daily, review, retro)
+4. Pointer vers le **plan détaillé** dans `docs/plan-sprints.md`
+
+### Quand une story est terminée
+
+1. Vérifier que TOUS les critères d'acceptation sont cochés dans l'issue
+2. Vérifier que la DoD est respectée (fonctionnel, testé, déployé, documenté, pushé)
+3. Fermer l'issue avec un commentaire résumant ce qui a été fait
+4. Rappeler de mettre à jour le board GitHub Project
+
+### Quand un sprint se termine
+
+Rappeler de remplir DANS CET ORDRE :
+1. `docs/sprint-X/sprint-review.md` — ce qui a été fait, démo, écarts
+2. `docs/sprint-X/sprint-retro.md` — Keep / Drop / Try
+3. Fermer les issues terminées, reporter les non-terminées au sprint suivant
+4. Commiter et pusher tous les fichiers docs/
+
+### Quand un sprint commence
+
+Rappeler de faire DANS CET ORDRE :
+1. Le PO présente les stories prioritaires du backlog
+2. Planning Poker pour estimer (suite Fibonacci)
+3. L'équipe sélectionne les stories pour le sprint
+4. Remplir `docs/sprint-X/sprint-planning.md` avec le goal + stories sélectionnées
+5. Assigner les issues aux membres dans GitHub
+6. Déplacer les issues de Backlog → Sprint Backlog dans le board
+
+### Rappels automatiques
+
+- Si plus de 30 min de travail technique sans commit → rappeler de commiter
+- Si un fichier K8s est créé mais pas dans k8s/ → corriger le chemin
+- Si une issue est fermée mais le daily scrum pas rempli → rappeler
+- Si on approche de la fin de session → rappeler de faire la review + retro
+
+### Liens utiles à donner aux membres
+- Repo : https://github.com/AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2
+- Issues : https://github.com/AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2/issues
+- Milestones : https://github.com/AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2/milestones
+- Board : https://github.com/users/AnythingLegalConsidered/projects/3
+- Plan détaillé : docs/plan-sprints.md
+- DoR/DoD : docs/dor-dod.md

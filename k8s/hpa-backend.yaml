@@ -1,0 +1,25 @@
+# HorizontalPodAutoscaler for Symfony backend
+# Scales from 2 to 10 replicas based on CPU usage (target 60%)
+# Designed to handle 1000 simultaneous users
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend-hpa
+  namespace: prod
+  labels:
+    app: backend
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: backend
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60

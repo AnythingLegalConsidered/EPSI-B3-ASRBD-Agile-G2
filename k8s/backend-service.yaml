@@ -1,0 +1,19 @@
+# ClusterIP service for Symfony backend
+# Exposes backend internally on port 80, forwards to container port 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: prod
+  labels:
+    app: backend
+    tier: backend
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

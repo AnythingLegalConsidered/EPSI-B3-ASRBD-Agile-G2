@@ -1,0 +1,15 @@
+# ConfigMap for Symfony backend configuration
+# Environment variables injected into backend pods
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: prod
+  labels:
+    app: backend
+    tier: backend
+data:
+  APP_ENV: "prod"
+  APP_DEBUG: "0"
+  DATABASE_URL: "mysql://wms_user:password@db:3306/app"

@@ -1,0 +1,35 @@
+# Ingress with TLS termination for HTTPS access
+# Uses the tls-secret created from self-signed certificates
+# Same routing rules as ingress.yaml but with TLS enabled
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ntl-ingress-tls
+  namespace: prod
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  tls:
+    - hosts:
+        - k8s.local
+      secretName: tls-secret
+  rules:
+    - host: k8s.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 80

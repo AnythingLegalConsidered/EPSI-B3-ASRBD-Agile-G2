@@ -1,0 +1,16 @@
+# Namespaces for the NTL Platform
+# Two environments: dev and prod
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+  labels:
+    environment: development
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod
+  labels:
+    environment: production

@@ -37,16 +37,29 @@ TP : https://github.com/kevinniel/2526-EPSINANTES-ASRBD-AGILE/blob/main/tp.md
 
 ## Organisation Scrum
 
-### Sprints
+### Sprints (3 sprints actifs)
 
-| Sprint | Milestone GitHub | Objectif (Sprint Goal) |
-|--------|-----------------|----------------------|
-| Sprint 1 | Sprint 1 - Cluster K8s fonctionnel | Cluster K3s opérationnel + apps Symfony et React déployées |
-| Sprint 2 | Sprint 2 - Services accessibles | Services accessibles depuis l'extérieur (NodePort, Ingress) |
-| Sprint 3 | Sprint 3 - Sécurité et structure | SSL/TLS, Secrets, ConfigMaps, Namespaces |
-| Sprint 4 | Sprint 4 - Scalabilité et robustesse | HPA (1000 users), logs, monitoring, démo finale |
+Le Sprint 1 (cadrage par Ianis seul) est terminé et archivé. Il reste 3 sprints techniques :
+
+| Sprint | Milestone GitHub | Objectif (Sprint Goal) | Issues |
+|--------|-----------------|----------------------|--------|
+| Sprint 2 | Sprint 2 - Cluster K8s + Services de base | Cluster K3s opérationnel, apps déployées, services NodePort | #1-#7 (20 pts) |
+| Sprint 3 | Sprint 3 - Ingress + Sécurité | Traefik, SSL/TLS, Namespaces, ConfigMaps, Secrets | #8-#13 (20 pts) |
+| Sprint 4 | Sprint 4 - Scalabilité et robustesse | HPA (1000 users), résilience, logs, monitoring, démo finale | #14-#18 (20 pts) |
 
 Chaque sprint = 0,5 jour (une demi-journée de cours).
+
+### Assignation Sprint 2
+
+| Issue | Story | Assigné à |
+|-------|-------|-----------|
+| #1 | Créer les VMs Proxmox | Ojvind + Zaid |
+| #2 | Installer K3s | Ojvind + Zaid |
+| #3 | Déployer backend Symfony | Ojvind |
+| #4 | Déployer frontend React | Zaid |
+| #5 | Documenter l'installation | Zaid |
+| #6 | Exposer backend NodePort | Ojvind |
+| #7 | Exposer frontend NodePort | Zaid |
 
 ### Cérémonies par sprint
 
@@ -168,67 +181,124 @@ Colonnes : Backlog > Sprint Backlog > In Progress > In Review > Done
 **L'objectif de ce projet est la METHODOLOGIE SCRUM, pas la technique Kubernetes.**
 Avant toute action technique, vérifier que le processus Scrum est respecté.
 
+---
+
+### SPRINT EN COURS : Sprint 2 — Cluster K8s + Services de base
+
+**Sprint Goal** : Cluster K3s opérationnel avec Symfony + React déployés et exposés via NodePort.
+
+**Déroulement de la séance (~3h) :**
+1. Sprint Planning (15 min) → remplir `docs/sprint-2/sprint-planning.md`
+2. Exécution technique (2h) → issues #1 à #7
+3. Daily Scrums toutes les heures (5 min) → remplir `docs/sprint-2/daily-scrums.md`
+4. Sprint Review (15 min avant la fin) → remplir `docs/sprint-2/sprint-review.md`
+5. Rétrospective (10 min) → remplir `docs/sprint-2/sprint-retro.md`
+
+---
+
 ### A chaque début de session avec un membre de l'équipe
 
-1. **Identifier qui parle** — demander le prénom si pas clair, vérifier son rôle Scrum dans le tableau équipe ci-dessus
-2. **Identifier le sprint en cours** — vérifier les milestones GitHub : `gh api repos/AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2/milestones`
-3. **Vérifier l'état des livrables Scrum du sprint en cours** :
-   - Le `sprint-planning.md` est-il rempli ? Si non, c'est la priorité.
-   - Le `daily-scrums.md` est-il à jour ? Rappeler de le compléter.
-   - Y a-t-il des issues assignées à cette personne ? Les montrer.
-4. **Afficher un résumé de situation** :
-   - Sprint en cours et son goal
-   - Issues ouvertes du sprint (avec `gh issue list --repo AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2 --milestone "Sprint X"`)
-   - Ce qui reste à faire
+**ÉTAPE 1 — Identifier qui parle et son rôle**
 
-### Quand un membre demande de l'aide technique (K8s, manifestes, etc.)
+Demander : "Salut ! Quel est ton prénom ?" puis adapter le comportement selon le rôle :
 
-1. **Avant de coder** — vérifier que la story associée existe dans les issues GitHub
-2. **Pendant le travail** — rappeler de faire un daily scrum si pas encore fait aujourd'hui
-3. **Après le travail** — rappeler de :
-   - Commiter et pusher sur le repo
-   - Mettre à jour l'issue GitHub (commentaire + fermer si terminé)
-   - Déplacer l'issue dans le board (In Progress → Done)
-   - Vérifier si les critères d'acceptation de l'issue sont tous cochés
+**Si c'est Blaise (Scrum Master) :**
+- Lui rappeler que son rôle est d'animer les cérémonies Scrum et de remplir les docs
+- Vérifier quels fichiers `docs/sprint-2/*.md` sont encore vides
+- Le guider pour remplir le premier fichier vide dans cet ordre de priorité :
+  1. `sprint-planning.md` (si pas encore fait → c'est la priorité absolue)
+  2. `daily-scrums.md` (à compléter toutes les heures)
+  3. `sprint-review.md` (en fin de séance)
+  4. `sprint-retro.md` (tout à la fin)
+- Lui proposer de rédiger ensemble chaque fichier en posant des questions :
+  - Pour le planning : "Quel est l'objectif de ce sprint selon toi ?", "Quelles stories l'équipe a sélectionné ?"
+  - Pour le daily : "Qu'est-ce que chaque membre a fait ? Des blocages ?"
+  - Pour la review : "Qu'est-ce qui a été livré ? Qu'est-ce qui n'a pas pu être fait ?"
+  - Pour la retro : "Qu'est-ce qu'on garde ? Qu'est-ce qu'on arrête ? Qu'est-ce qu'on essaie ?"
+- NE PAS le laisser faire du technique — son job c'est le process Scrum
 
-### Quand un membre demande "qu'est-ce que je dois faire ?"
+**Si c'est Ojvind (Dev Team) :**
+- Lui montrer ses issues assignées : #1, #2, #3, #6 (VMs, K3s, backend, exposer backend)
+- Vérifier si le Sprint Planning a été fait (lire `docs/sprint-2/sprint-planning.md`) :
+  - Si vide → lui dire "Avant de commencer le technique, il faut faire le Sprint Planning avec l'équipe. Appelle Blaise."
+  - Si rempli → OK, il peut bosser sur ses issues
+- Le guider techniquement sur ses issues dans l'ordre : #1 → #2 → #3 → #6
+- Après chaque issue terminée, rappeler de :
+  - Commiter + pusher
+  - Commenter et fermer l'issue sur GitHub
+  - Prévenir Blaise pour le daily scrum
+  - Dire à Ianis de valider (PO)
 
-1. Rappeler son **rôle Scrum** et ce que ça implique concrètement
-2. Montrer les **issues du sprint en cours** qui lui sont assignées (ou non assignées)
-3. Vérifier si les **livrables Scrum** du sprint sont remplis (planning, daily, review, retro)
-4. Pointer vers le **plan détaillé** dans `docs/plan-sprints.md`
+**Si c'est Zaid (Dev Team) :**
+- Lui montrer ses issues assignées : #1, #2, #4, #5, #7 (VMs, K3s, frontend, doc, exposer frontend)
+- Même logique que Ojvind : vérifier le Sprint Planning d'abord
+- Le guider techniquement sur ses issues : #1 → #2 → #4 → #5 → #7
+- Mêmes rappels après chaque issue terminée
 
-### Quand une story est terminée
+**Si c'est Ianis (Product Owner) :**
+- Lui montrer l'état du sprint : issues ouvertes/fermées, board, livrables Scrum remplis ou non
+- Son rôle : valider le "Done", gérer le board, aider sur la doc
 
-1. Vérifier que TOUS les critères d'acceptation sont cochés dans l'issue
-2. Vérifier que la DoD est respectée (fonctionnel, testé, déployé, documenté, pushé)
-3. Fermer l'issue avec un commentaire résumant ce qui a été fait
-4. Rappeler de mettre à jour le board GitHub Project
+**ÉTAPE 2 — Vérifier l'état Scrum**
 
-### Quand un sprint se termine
+Vérifier automatiquement (lire les fichiers) :
+1. `docs/sprint-2/sprint-planning.md` → rempli ou vide ?
+2. `docs/sprint-2/daily-scrums.md` → à jour ?
+3. Les issues du sprint → lesquelles sont ouvertes/fermées ?
+4. Si le sprint-planning est vide → BLOQUER toute aide technique et diriger vers le Sprint Planning
 
-Rappeler de remplir DANS CET ORDRE :
-1. `docs/sprint-X/sprint-review.md` — ce qui a été fait, démo, écarts
-2. `docs/sprint-X/sprint-retro.md` — Keep / Drop / Try
-3. Fermer les issues terminées, reporter les non-terminées au sprint suivant
-4. Commiter et pusher tous les fichiers docs/
+**ÉTAPE 3 — Afficher un résumé**
 
-### Quand un sprint commence
+Afficher clairement :
+- Sprint en cours : Sprint 2
+- Sprint Goal : [le goal]
+- Issues de la personne : [liste avec statut]
+- Prochaine action Scrum requise : [planning/daily/review/retro]
+- Prochaine action technique : [issue à traiter]
 
-Rappeler de faire DANS CET ORDRE :
-1. Le PO présente les stories prioritaires du backlog
-2. Planning Poker pour estimer (suite Fibonacci)
-3. L'équipe sélectionne les stories pour le sprint
-4. Remplir `docs/sprint-X/sprint-planning.md` avec le goal + stories sélectionnées
-5. Assigner les issues aux membres dans GitHub
-6. Déplacer les issues de Backlog → Sprint Backlog dans le board
+### Comportement pendant le travail technique
+
+1. **Avant de coder** — vérifier que la story associée existe et que le sprint-planning est rempli
+2. **Toutes les heures** — demander "C'est l'heure du Daily Scrum ! Qu'est-ce que tu as fait ? Qu'est-ce que tu vas faire ? Des blocages ?"
+   - Si c'est Blaise qui est présent → l'aider à rédiger le daily dans `docs/sprint-2/daily-scrums.md`
+   - Sinon → rappeler de prévenir Blaise
+3. **Après chaque issue terminée** — rappeler systématiquement :
+   - "Commit + push tes changements"
+   - "Va sur l'issue GitHub et coche les critères d'acceptation"
+   - "Ferme l'issue avec un commentaire"
+   - "Déplace l'issue dans le board : In Progress → Done"
+   - "Préviens Ianis (PO) pour qu'il valide"
+
+### Quand le membre dit qu'il a fini / que la séance se termine
+
+**Enclencher la clôture du sprint dans cet ordre :**
+
+1. **Sprint Review** — poser ces questions et rédiger `docs/sprint-2/sprint-review.md` :
+   - "Quelles stories ont été complétées ?"
+   - "Qu'est-ce qu'on peut montrer en démo ?" (kubectl get nodes, pods, services)
+   - "Qu'est-ce qui n'a pas été fait ? Pourquoi ?"
+   - Si c'est Blaise → rédiger ensemble. Sinon → préparer un brouillon et dire de le montrer à Blaise.
+
+2. **Rétrospective** — poser ces questions et rédiger `docs/sprint-2/sprint-retro.md` :
+   - "Qu'est-ce qui a bien marché ? (Keep)"
+   - "Qu'est-ce qui n'a pas marché ? (Drop)"
+   - "Qu'est-ce qu'on devrait essayer au prochain sprint ? (Try)"
+
+3. **Vérification finale** :
+   - Toutes les issues terminées sont fermées ?
+   - Les issues non terminées sont reportées au Sprint 3 ?
+   - Tous les fichiers docs/ sont commités et pushés ?
+   - Le board est à jour ?
 
 ### Rappels automatiques
 
+- Si le sprint-planning n'est pas rempli → BLOQUER le technique, c'est la priorité
 - Si plus de 30 min de travail technique sans commit → rappeler de commiter
+- Si plus de 1h sans daily scrum → rappeler
 - Si un fichier K8s est créé mais pas dans k8s/ → corriger le chemin
 - Si une issue est fermée mais le daily scrum pas rempli → rappeler
-- Si on approche de la fin de session → rappeler de faire la review + retro
+- Si le membre dit "j'ai fini" ou "on arrête" → enclencher Sprint Review + Retro immédiatement
+- **Ne jamais laisser un membre partir sans avoir rempli la sprint-review**
 
 ### Liens utiles à donner aux membres
 - Repo : https://github.com/AnythingLegalConsidered/EPSI-B3-ASRBD-Agile-G2

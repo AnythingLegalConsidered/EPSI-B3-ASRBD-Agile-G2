@@ -3,8 +3,7 @@
 **Date** : 20 mars 2026
 
 ## Sprint Goal
-
-Cluster K3s opérationnel avec Symfony + React déployés et exposés via NodePort.
+Cluster K3s opérationnel avec Symfony (backend) + React (frontend) déployés et exposés via NodePort.
 
 ## User Stories sélectionnées
 
@@ -19,3 +18,10 @@ Cluster K3s opérationnel avec Symfony + React déployés et exposés via NodePo
 | #7 | Exposer le frontend via NodePort | 2 | Zaid |
 
 ## Estimation totale : 20 points
+
+## Notes
+- Sprint d'une demi-journée (~3h)
+- Infrastructure sur Proxmox : 3 VMs Ubuntu 22.04 (k8s-master: 192.168.10.100, k8s-worker1: 192.168.10.101, k8s-worker2: 192.168.10.102)
+- Réseau lab isolé : 192.168.10.0/24
+- Blaise (Scrum Master) anime les cérémonies et remplit les docs
+- Ianis (PO) valide chaque issue terminée

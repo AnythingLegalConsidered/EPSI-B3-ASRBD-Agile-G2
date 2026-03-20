@@ -1,23 +1,23 @@
 # Sprint 2 - Daily Scrums
 
-## Daily 1 - [Date]
+## Daily 1 - 20 mars 2026
 
-### [Membre]
-- **Fait** :
-- **A faire** :
-- **Blocages** :
+### Blaise (Scrum Master)
+- **Fait** : Élaboration et rédaction du Sprint Planning
+- **À faire** : Animer et rédiger le Sprint Review
+- **Blocages** : Aucun
 
-### [Membre]
-- **Fait** :
-- **A faire** :
-- **Blocages** :
+### Ojvind (Dev Team)
+- **Fait** : Installation des VMs Proxmox (#1)
+- **À faire** : Configurer les cartes réseau pour le cluster Kubernetes (#2)
+- **Blocages** : Difficultés sur la configuration réseau des VMs
 
-### [Membre]
-- **Fait** :
-- **A faire** :
-- **Blocages** :
+### Zaid (Dev Team)
+- **Fait** : Installation des VMs Proxmox (#1)
+- **À faire** : Configurer les cartes réseau pour le cluster Kubernetes (#2)
+- **Blocages** : Difficultés sur la configuration réseau des VMs
 
-### [Membre]
-- **Fait** :
-- **A faire** :
-- **Blocages** :
+### Ianis (Product Owner)
+- **Fait** : Préparation des machines en avance, rédaction du Sprint Planning
+- **À faire** : Assigner les machines aux membres de l'équipe
+- **Blocages** : Aucun

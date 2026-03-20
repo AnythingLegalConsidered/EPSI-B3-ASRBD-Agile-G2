@@ -19,10 +19,3 @@ Cluster K3s opérationnel avec Symfony + React déployés et exposés via NodePo
 | #7 | Exposer le frontend via NodePort | 2 | Zaid |
 
 ## Estimation totale : 20 points
-
-## Notes
-
-- Blaise absent lors du Sprint Planning — planning réalisé par Ojvind avec support Claude Code
-- L'équipe a accès au Proxmox ce sprint
-- Travail en parallèle prévu : Ojvind (infra + backend) / Zaid (frontend + doc)
-- Ordre d'exécution : #1 → #2 → #3 + #4 en parallèle → #6 + #7

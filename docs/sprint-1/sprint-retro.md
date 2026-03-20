@@ -8,10 +8,6 @@
 - Utilisation de GitHub Issues + Project pour la traçabilité
 - Plan détaillé qui servira de guide pour les prochains sprints
 
-## Drop (On arrête)
-- Travailler seul sans l'équipe : les prochains sprints doivent être en équipe complète
-- Ne pas attribuer les rôles Scrum dès le début
-
 ## Try (On essaie au prochain sprint)
 - Attribuer les rôles (PO, SM, Dev) dès le début du Sprint 2
 - Faire un vrai Planning Poker en équipe pour valider les estimations

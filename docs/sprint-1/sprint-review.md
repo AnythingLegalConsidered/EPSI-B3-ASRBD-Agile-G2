@@ -26,6 +26,11 @@ Mettre en place le cadre Scrum complet et préparer l'infrastructure technique p
 - **Plan des sprints** : plan détaillé étape par étape dans docs/plan-sprints.md
 - **Collaborateurs invités** : tequilla77, blaisecarel, zaidAbouyaala
 
+### Ce qui n'a pas pu être fait
+- Pas de travail technique K8s (pas d'accès Proxmox)
+- Rôles Scrum non attribués (équipe incomplète)
+- Manifestes K8s non préparés
+
 ## Feedback
 - Le cadrage Scrum est complet, l'équipe pourra démarrer le technique dès le Sprint 2
 - Les rôles doivent être attribués en priorité au début du Sprint 2
